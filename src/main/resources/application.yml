@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+#spring:
+#  mqtt:
+#    host: tcp://localhost:18083
+#    clientid: emqtest
+#    topic: good,test,yes
+#    username: admin
+#    password: public
+#    timeout: 10
+#    keepalive: 20
