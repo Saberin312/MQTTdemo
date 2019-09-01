@@ -1,18 +1,23 @@
 package com.example.MQTT.demo.BHR;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.sun.tools.doclets.internal.toolkit.builders.PackageSummaryBuilder;
 import org.omg.CORBA.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jms.activemq.ActiveMQProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.sql.DataSource;
 import javax.validation.Valid;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
+//@ComponentScan(basePackages = "org.springframework.jdbc.core.JdbcTemplate")
 public class MqttApplication {
 
 	public static void main(String[] args) {
@@ -21,7 +26,7 @@ public class MqttApplication {
 //
 //	@Value("${http.url}")
 //	private String url;
-//
+////
 //	@Autowired
 //	private org.springframework.core.env.Environment env;
 //

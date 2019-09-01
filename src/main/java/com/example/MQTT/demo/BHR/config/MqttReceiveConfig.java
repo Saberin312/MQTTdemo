@@ -1,5 +1,11 @@
 package com.example.MQTT.demo.BHR.config;
 
+//import com.example.MQTT.demo.BHR.service.Node;
+//import com.example.MQTT.demo.BHR.service.NodeTrans;
+//import com.example.MQTT.demo.BHR.service.NodeTrans;
+//import com.example.MQTT.demo.BHR.service.Node;
+//import com.example.MQTT.demo.BHR.service.NodeTrans;
+import com.example.MQTT.demo.BHR.service.Node;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +19,6 @@ import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
 import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
-import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.MessagingException;
@@ -88,7 +93,7 @@ public class MqttReceiveConfig {
         return adapter;
     }
 
-    //通过通道获取数据
+//    通过通道获取数据
 //    @Bean
 //    @ServiceActivator(inputChannel = "mqttInputChannel")
 //    public MessageHandler handler() {
@@ -108,12 +113,24 @@ public class MqttReceiveConfig {
 
     @Bean
     @ServiceActivator(inputChannel = "mqttInputChannel")
-    public MessageHandler handler() {
+    public MessageHandler handler() throws Exception {
         return message -> {
+//
+
             try {
                 //这里拿到发布的消息内容，做具体的业务逻辑处理
                 String string = message.getPayload().toString();
+//                Node node = new Node();
+//                node.create(1,null,12.12);
+
+////                NodeTrans nodeTrans = new NodeTrans();
                 log.info("Message :" + string);
+                log.info("NodeTrans=");
+//                log.info("NodeId:"+nodeTrans.transId(string));
+//                log.info("NodeValue:" + nodeTrans.trasnValue(string));
+//                log.info("NodeTime:"+nodeTrans.transTime(string));
+//                node.create(nodeTrans.transId(string), nodeTrans.transTime(string), nodeTrans.trasnValue(string));
+//                node.create(1,null,12.12);
             } catch (MessagingException ex) {
                 log.error("MassageHandler is error!++++" + ex + "++++");
             }

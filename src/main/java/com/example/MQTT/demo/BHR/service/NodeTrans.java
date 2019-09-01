@@ -1,7 +1,7 @@
 package com.example.MQTT.demo.BHR.service;
 
 import com.alibaba.druid.sql.visitor.functions.Char;
-import io.swagger.models.auth.In;
+//import io.swagger.models.auth.In;
 
 import javax.xml.soap.Node;
 import java.sql.Timestamp;
@@ -54,13 +54,17 @@ public class NodeTrans {
     }
 
 
- //    public NodeTrans(String string) {
+//     public NodeTrans(String string) {
 //        this.string = string;
 //    }
     public static void main(String[] args) {
 //        NodeTrans nodeTrans=new NodeTrans("node 1,19,3,19,14,2,51,2,39.10");
 
-        String string="node 1,2019,03,19,14,02,51,2,39.10";
+        String string="node 1,2019,03,19,14,02,51,2,88.10";
+        com.example.MQTT.demo.BHR.service.Node node = new com.example.MQTT.demo.BHR.service.Node();
+//        NodeTrans nodeTrans = new NodeTrans();
+//        nodeTrans.transId(string);
+//        System.out.println("id=" + nodeTrans.transId(string));
         int index[] = new int[8];
         index[0] = 6;
         System.out.println(string);
@@ -90,6 +94,7 @@ public class NodeTrans {
 
         System.out.println(nodeTrans.transTime(string));
         System.out.println(nodeTrans.trasnValue(string));
+//        node.create(nodeTrans.transId(string), nodeTrans.transTime(string), nodeTrans.trasnValue(string));
 
     }
 //
