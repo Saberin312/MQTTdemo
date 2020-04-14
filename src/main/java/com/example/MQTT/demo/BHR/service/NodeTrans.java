@@ -96,6 +96,7 @@ public class NodeTrans {
         System.out.println(nodeTrans.trasnValue(string));
 //        node.create(nodeTrans.transId(string), nodeTrans.transTime(string), nodeTrans.trasnValue(string));
 
+
     }
 //
 //    public String getString() {
